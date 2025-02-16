@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaVive | Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+    body {
+        background-image: url(https://img.huffingtonpost.com/asset/596359141500002000bfcc70.jpeg?ops=1778_1000.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #e5e5e5;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        animation: moveBackground 30s infinite alternate ease-in-out;
+        overflow: hidden;
+    }
+
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: -1;
+    }
+
+    /* Navbar */
+    .navbar {
+        background: linear-gradient(135deg, #25304a, #141c2e);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        border-bottom: 2px solid #4a75a8;
+        padding-left: 20px;
+        height: 109px;
+    }
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-brand img {
+        height: 65px;
+        margin-right: 10px;
+    }
+
+    .navbar-brand span {
+        color: #ffffff;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .nav-link {
+        color: #ffffff !important;
+        margin: 0 10px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: transform 0.3s ease, color 0.3s ease;
+        position: relative;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 3px;
+        background: #4a75a8;
+        left: 50%;
+        bottom: -5px;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    .nav-link:hover {
+        transform: scale(1.1);
+        color: #4a75a8 !important;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        width: 100%;
+        left: 0;
+    }
+
+    .nav-link.active {
+        color: #6ea2e2 !important;
+    }
+
+    /* CTA Button */
+    .cta-btn {
+        background-color: #4a75a8;
+        border: none;
+        padding: 10px 20px;
+        color: #ffffff;
+        font-size: 1.1rem;
+        border-radius: 25px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-btn:hover {
+        background-color: #6ea2e2;
+        transform: scale(1.05);
+    }
+
+    /* Hero Section */
+    .hero {
+        height: 50vh;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+
+    .hero h1 {
+        font-family: 'Helvetica';
+        font-size: 7rem;
+        color: #ffffff;
+        position: relative;
+        z-index: 1;
+        text-shadow: none; 
+    }
+
+    .hero p {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 200;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+        letter-spacing: 1px;
+    }
+
+    /* Typing Effect */
+    .typing-effect {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 3px solid #ffffff;
+        font-size: 4rem;
+        padding-right: 5px;
+        visibility: hidden;
+        animation: reveal 0s forwards 4s, typing 1s steps(8, end) forwards 4s, blink 0.75s step-end infinite 5s;
+    }
+
+    @keyframes reveal {
+        to {
+            visibility: visible;
+        }
+    }
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+        to {
+            width: 8.3ch;
+        }
+    }
+
+    @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+    }
+
+    /* Particles */
+    .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+    .particle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        opacity: 0.3;
+        animation: particleAnimation 300s infinite linear;
+    }
+
+    .particle.glow {
+        box-shadow: 0 0 15px 5px rgba(255, 255, 255, 1);
+        opacity: 0.7;
+    }
+
+    @keyframes particleAnimation {
+        from {
+            transform: translate(0, 0);
+        }
+        to {
+            transform: translate(calc(var(--x) * 2), calc(var(--y) * 2));
+        }
+    }
+
+    /* Move Background Animation */
+    @keyframes moveBackground {
+        0% {
+            background-position: center top;
+        }
+        50% {
+            background-position: center center;
+        }
+        100% {
+            background-position: center bottom;
+        }
+    }
+
+    /* Logo Screen */
+    #logo-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #141c2e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        animation: fadeOut 1.5s forwards 2.5s;
+    }
+
+    #logo-screen img {
+        width: 300px;
+        height: 300px;
+        animation: zoomIn 1.5s ease-in-out;
+    }
+
+    @keyframes zoomIn {
+        from {
+            transform: scale(0);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    /* Navigation Links Cards */
+    .navigation-links .card {
+        background-color: rgba(37, 48, 74, 0.8);
+        border: none;
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        color: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .navigation-links .card img {
+        width: 60px;
+        height: 60px;
+        margin: 15px auto 0;
+    }
+
+    .navigation-links h5 {
+        margin: 15px 0 10px;
+        font-size: 1.25rem;
+        font-weight: bold !important;
+        color: #FFD700 !important;
+    }
+
+    .navigation-links p {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+        flex-grow: 1;
+    }
+
+    .navigation-links .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+        background-color: rgba(46, 61, 90, 0.9);
+    }
+
+    /* Media Queries */
+    @media (max-width: 992px) {
+        .hero h1 {
+            font-size: 5rem;
+        }
+    }
+
+    @media (min-width: 768px) {
+        body {
+            overflow: hidden;
+        }
+    }
+
+    @media (max-width: 768px) {
+        body {
+            overflow: visible;
+        }
+    }
+
+    /* Gradient Button */
+    .gradient-btn {
+        background: linear-gradient(135deg, #5b8cea, #e910fc);
+        color: #ffffff !important;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        border-radius: 25px;
+        transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .gradient-btn:hover {
+        background: linear-gradient(135deg, #e910fc, #5b8cea);
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    }
+</style>
+
+</head>
+
+
+
+
+	<body>
+		<div id="logo-screen">
+			<img src="logo.png" alt="UIA Logo">
+		</div>
+
+
+
+
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="UIA Logo">
+          
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Library.html">Library</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Codex.html">Codex</a></li>
+                    <li class="nav-item"><a class="nav-link" href="CTA.html">CTA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="About Us.html">About Us</a></li>
+                    <li class="nav-item"> <a class="btn cta-btn gradient-btn ms-3" href="Donation.html" tabindex="0">Donate Now</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+    <section class="hero">
+		<br><br>
+        <h1 class="typing-effect"> <b>AquaVive </b></h1>
+		<br><br>
+        <p><i>Small Steps, Big Ripples.</i> ™</p>
+		
+		<p style="font-size: 20px; position: relative; top: 50px; font-family: Helvetica, sans-serif;"> <b> AquaVive aims to raise coral awareness and shares updates on Philippine Coral Reef degradation. </p>
+    </section>
+
+	
+
+
+
+    <section class="navigation-links text-center py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-3 mb-4">
+                    <a href="Library.html" class="text-decoration-none">
+                        <div class="card p-3">
+                            <img src="HIGHL.png" alt="Library" class="mx-auto">
+                            <h5>Library</h5>
+                            <p>Explore articles and research on coral reef conservation.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <a href="Codex.html" class="text-decoration-none">
+                        <div class="card p-3">
+                            <img src="HIGHC.png" alt="Codex" class="mx-auto">
+                            <h5>Codex</h5>
+                            <p>Discover different coral species and their ecosystems.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <a href="CTA.html" class="text-decoration-none">
+                        <div class="card p-3">
+                            <img src="HIGHI.png" alt="Get Involved" class="mx-auto">
+                            <h5>CTA</h5>
+                            <p>Find ways to volunteer and participate in our efforts.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <a href="Donation.html" class="text-decoration-none">
+                        <div class="card p-3">
+                            <img src="HIGHD.png" alt="Donate Now" class="mx-auto">
+                            <h5>Donations</h5>
+                            <p>Support coral reef preservation with your donation.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	  <div class="particles"></div> <!-- Container for particles -->
+	
+	
+		<script>
+    window.addEventListener('load', function() {
+        const particlesContainer = document.querySelector('.particles');
+        const particles = [];
+
+        // Generate random particles with size
+        for (let i = 0; i < 69; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+
+            // Randomize position
+            particle.style.top = `${Math.random() * 100}vh`;
+            particle.style.left = `${Math.random() * 100}vw`;
+
+            // Randomize size
+            const size = Math.random() * (12 - 1) + 1;  // Size between 1 and 3
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            // Random velocity
+            particle.style.setProperty('--x', `${Math.random() * 400 - 200}vw`);
+            particle.style.setProperty('--y', `${Math.random() * 400 - 200}vh`);
+
+            particles.push(particle);
+            particlesContainer.appendChild(particle);
+        }
+
+        window.addEventListener('mousemove', function(e) {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            particles.forEach(particle => {
+                const particleRect = particle.getBoundingClientRect();
+                const particleX = particleRect.left + particleRect.width / 2;
+                const particleY = particleRect.top + particleRect.height / 2;
+
+                const distX = mouseX - particleX;
+                const distY = mouseY - particleY;
+                const distance = Math.sqrt(distX * distX + distY * distY);
+
+                const maxDistance = 150;
+                const smoothFactor = 0.1;
+
+                if (distance < maxDistance) {
+                    const angle = Math.atan2(distY, distX);
+                    const force = (maxDistance - distance) / maxDistance;
+                    const pushX = Math.cos(angle) * force * smoothFactor;
+                    const pushY = Math.sin(angle) * force * smoothFactor;
+
+                    let currentX = parseFloat(particle.style.getPropertyValue('--x') || 0);
+                    let currentY = parseFloat(particle.style.getPropertyValue('--y') || 0);
+
+                    currentX += pushX;
+                    currentY += pushY;
+
+                    particle.style.setProperty('--x', `${currentX}vw`);
+                    particle.style.setProperty('--y', `${currentY}vh`);
+
+                    currentX += Math.random() * 5 - 2.5;
+                    currentY += Math.random() * 5 - 2.5;
+
+                    particle.style.setProperty('--x', `${currentX}vw`);
+                    particle.style.setProperty('--y', `${currentY}vh`);
+
+                    particle.classList.add('glow');
+                } else {
+                    particle.classList.remove('glow');
+                }
+            });
+        });
+    });
+</script>
+
+
+
+	
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="logo.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaVive | Donations </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+	
+	 html, body {
+    overflow-x: hidden !important; /* Hides horizontal scrollbar */
+    overflow-y: auto; /* Keeps vertical scrolling */
+}
+
+* {
+    box-sizing: border-box; /* Prevents padding/margin from causing overflow */
+}
+
+body {
+    background-image: url(https://img.huffingtonpost.com/asset/596359141500002000bfcc70.jpeg?ops=1778_1000.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #e5e5e5;
+    font-family: Arial, sans-serif;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    animation: moveBackground 30s infinite alternate ease-in-out;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+.navbar {
+    background: linear-gradient(135deg, #25304a, #141c2e);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #4a75a8;
+    padding-left: 20px;
+    position: fixed; /* Fixed position at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    margin: 0;
+    padding-top: 10px;
+    height: 109px;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 65px;
+    margin-right: 10px;
+}
+
+.navbar-brand span {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    margin: 0 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #4a75a8;
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover {
+    transform: scale(1.1);
+    color: #4a75a8 !important;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav-link.active {
+    color: #6ea2e2 !important;
+}
+
+.cta-btn {
+    background-color: #4a75a8;
+    border: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #6ea2e2;
+    transform: scale(1.05);
+}
+
+.hero {
+    height: 50vh;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+}
+
+.hero h1 {
+    font-family: 'Helvetica';
+    font-size: 5rem;
+    color: #FFD700;
+    position: relative;
+    z-index: 1;
+    text-shadow: none;
+}
+
+
+
+@keyframes moveBackground {
+    0% {
+        background-position: center top;
+    }
+    50% {
+        background-position: center center;
+    }
+    100% {
+        background-position: center bottom;
+    }
+}
+
+#logo-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #141c2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 1.5s forwards 2.5s;
+}
+
+#logo-screen img {
+    width: 300px;
+    height: 300px;
+    animation: zoomIn 1.5s ease-in-out;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 768px) {
+    .donation-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .donation-card {
+        max-width: 90%;
+    }
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: particleAnimation 300s infinite linear;
+}
+
+@keyframes particleAnimation {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(calc(var(--x) * 15), calc(var(--y) * 15));
+    }
+}
+
+.gradient-btn {
+    background: linear-gradient(135deg, #5b8cea, #e910fc);
+    color: #ffffff !important;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.gradient-btn:hover {
+    background: linear-gradient(135deg, #e910fc, #5b8cea);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.donation-section {
+    background: rgba(20, 28, 46, 0.9);
+    padding: 80px 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.donation-content h2 {
+    font-size: 2.5rem;
+    color: #FFD700;
+    margin-bottom: 15px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.donation-content p {
+    font-size: 1.2rem;
+    color: #b0c4de;
+}
+
+.donation-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.donation-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    padding: 60px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.donation-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 28, 46, 0.8);
+    z-index: 1;
+}
+
+.donation-card::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    background: rgba(0, 0, 0, 0.8);
+    transition: height 0.3s ease-in-out;
+    bottom: 0;
+}
+
+.donation-content {
+    position: relative;
+    z-index: 2;
+}
+
+.donation-btn {
+    background: linear-gradient(135deg, #5b8cea, #e910fc);
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.donation-btn:hover {
+    background: linear-gradient(135deg, #e910fc, #5b8cea);
+    transform: scale(1.05);
+}
+
+.donation-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.donation-card:hover::after {
+    height: 20%;
+}
+
+				
+		
+    </style>
+</head>
+
+
+
+
+	<body>
+		<div id="logo-screen">
+			<img src="HIGHD.png" alt="Donation Logo">
+		</div>
+
+
+
+
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="UIA Logo">
+            
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Library.html"> Library</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Codex.html">Codex</a></li>
+                    <li class="nav-item"><a class="nav-link" href="CTA.html">CTA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="About Us.html">About Us</a></li>
+                    <li class="nav-item"> <a class="btn cta-btn gradient-btn ms-3" href="Donation.html" tabindex="0">Donate Now</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <section class="hero">
+		<br><br><br><br><br><br>
+		<img src ="HIGHD.png" width = "200px" height = "200px">
+        <h1> <b>Donations</b></h1>
+    </section>
+
+
+		<div class="container mt-5 pt-5">
+    <!-- Donation Disclaimer Section -->
+    <div class="donation-section" id="disclaimer">
+        <div class="donation-content">
+            <h2>Important Notice</h2>
+            <p>AquaVive <b> does not process donations directly. </b> We provide links to reputable marine conservation organizations where you can contribute safely.</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+   <div class="donation-wrapper">
+    <div class="donation-card" style="background-image: url('WWF.png');">
+        <div class="donation-content">
+            <h2>WWF-Philippines</h2>
+            <p>Help WWF protect marine biodiversity and coral reefs in the Philippines.</p>
+            <a href="https://support.wwf.org.ph/" class="btn donation-btn" target="_blank">Donate to WWF</a>
+        </div>
+    </div>
+
+    <div class="donation-card" style="background-image: url('RC.jpg');">
+        <div class="donation-content">
+            <h2>RC Foundation</h2>
+            <p>Support global reef monitoring and restoration efforts.</p>
+            <a href="https://www.reefcheck.org/donate/" class="btn donation-btn" target="_blank">Donate to Reef Check</a>
+        </div>
+    </div>
+
+    <div class="donation-card" style="background-image: url('OC.jpg');">
+        <div class="donation-content">
+            <h2>Oceana</h2>
+            <p>Join Oceana in protecting coral reefs and marine ecosystems worldwide.</p>
+            <a href="https://oceana.org/donate/" class="btn donation-btn" target="_blank">Donate to Oceana</a>
+        </div>
+    </div>
+</div>
+
+		<br><br>
+
+   
+	<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const particleContainer = document.createElement('div');
+        particleContainer.className = 'particles';
+        document.body.appendChild(particleContainer);
+
+        for (let i = 0; i < 60; i++) {  // Adjust the number of particles here
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Positioning
+            particle.style.top = `${Math.random() * 100}vh`;
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.setProperty('--x', `${Math.random() * 100 - 50}vw`);
+            particle.style.setProperty('--y', `${Math.random() * 100 - 50}vh`);
+
+            // Random Size
+            const size = Math.random() * 5 + 3;  // Sizes between 5px and 15px
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            particleContainer.appendChild(particle);
+        }
+    });
+</script>
+
+
+
+
+    
+
+
+	
+	
+		
+
+
+	
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="logo.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaVive | Library </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+<style>
+   html, body {
+    overflow-x: hidden !important;  /* Hide horizontal scrollbar */
+    overflow-y: auto;    /* Enable vertical scrolling */
+}
+
+* {
+    box-sizing: border-box; /* Prevent overflow caused by padding/margin */
+}
+
+body {
+    background-image: url(https://img.huffingtonpost.com/asset/596359141500002000bfcc70.jpeg?ops=1778_1000.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #e5e5e5;
+    font-family: Arial, sans-serif;
+    position: relative;
+    animation: moveBackground 30s infinite alternate ease-in-out;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+.navbar {
+    background: linear-gradient(135deg, #25304a, #141c2e);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #4a75a8;
+    padding-left: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 109px;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 65px;
+    margin-right: 10px;
+}
+
+.navbar-brand span {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    margin: 0 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #4a75a8;
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover {
+    transform: scale(1.1);
+    color: #4a75a8 !important;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav-link.active {
+    color: #6ea2e2 !important;
+}
+
+.cta-btn {
+    background-color: #4a75a8;
+    border: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #6ea2e2;
+    transform: scale(1.05);
+}
+
+.hero {
+    height: 50vh;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    max-width: 100vw;
+}
+
+.hero h1 {
+    font-family: 'Helvetica';
+    font-size: 5rem;
+    color: #FFD700;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+
+@keyframes moveBackground {
+    0% {
+        background-position: center top;
+    }
+    50% {
+        background-position: center center;
+    }
+    100% {
+        background-position: center bottom;
+    }
+}
+
+#logo-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #141c2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 1.5s forwards 2.5s;
+}
+
+#logo-screen img {
+    width: 300px;
+    height: 300px;
+    animation: zoomIn 1.5s ease-in-out;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        overflow: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow: visible;
+    }
+}
+
+.navigation-links .card {
+    background-color: rgba(37, 48, 74, 0.8);
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+}
+
+.navigation-links .card img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 15px;
+}
+
+.navigation-links .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation-links h5 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+    font-weight: bold !important;
+    color: #FFD700 !important;
+}
+
+.navigation-links p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.navigation-links .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+    background-color: rgba(46, 61, 90, 0.9);
+}
+
+.info-cards .card {
+    background-color: rgba(37, 48, 74, 0.9);
+    border-radius: 15px;
+    border: 2px solid #FFD700;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-cards .card img {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.info-cards .card-body {
+    padding: 20px;
+}
+
+.info-cards h5 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #FFD700;
+}
+
+.info-cards p {
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.info-cards .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: particleAnimation 300s infinite linear;
+}
+
+@keyframes particleAnimation {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(calc(var(--x) * 15), calc(var(--y) * 15));
+    }
+}
+
+.gradient-btn {
+    background: linear-gradient(135deg, #5b8cea, #e910fc);
+    color: #ffffff !important;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.gradient-btn:hover {
+    background: linear-gradient(135deg, #e910fc, #5b8cea);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+</style>
+</head>
+
+<body>
+    <div id="logo-screen">
+        <img src="HIGHL.png" alt="Library Logo">
+    </div>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="UIA Logo">
+              
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active">Library</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Codex.html">Codex</a></li>
+                    <li class="nav-item"><a class="nav-link" href="CTA.html">CTA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="About Us.html">About Us</a></li>
+                    <li class="nav-item"> <a class="btn cta-btn gradient-btn ms-3" href="Donation.html" tabindex="0">Donate Now</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+		<br><br><br><br><br><br>
+		<img src="HIGHL.png" width="200px" height="200px">
+        <h1><b>Library</b></h1>
+		
+    </section>
+
+
+
+    <section class="navigation-links text-center py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+			
+			
+			
+                <div class="col-12 mb-4">
+                        <div class="card">
+						<a href="https://ph.oceana.org/blog/importance-coral-reefs-fisheries/" class="text-decoration-none">
+                            <img src="P1.gif" alt="Library">
+					     </a>
+                            <div class="card-body">
+                                <h5>What role does the Philippine coral reefs play in our country? </h5>
+                                <p>Healthy coral reefs <b> support artisanal and commercial fisheries. </b> Coral reef fisheries such as groupers and lobsters directly rely on the reef for spawning and habitat.</p>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-12 mb-4"> 
+                        <div class="card">
+						<a href="https://ph.oceana.org/our-campaigns/strengthen-corals/#:~:text=When%20properly%20managed%2C%20a%20square,reside%20in%20the%20Philippines%20alone." class="text-decoration-none">
+                            <img src="P2.gif" alt="Library">
+						</a>
+                            <div class="card-body">
+                                <h5>Why are the coral reefs in decline? </h5>
+                                <p> Coral reefs are in the state of decline because of threats from <b> local human activities such as overfishing and destructive fishing, coastal development, watershed-based pollution and marine-based pollution and damage </b>. These threats have caused the decline in fisheries production for coral reefs in the Philippines since the 1970s. </p>
+                            </div>
+                        </div>
+                    
+                </div>
+                <div class="col-12 mb-4">
+                   
+                        <div class="card">
+						 <a href="https://ph.oceana.org/our-campaigns/strengthen-corals/#:~:text=When%20properly%20managed%2C%20a%20square,reside%20in%20the%20Philippines%20alone." class="text-decoration-none">
+                            <img src="P3.gif" alt="Library">
+						 </a>
+                            <div class="card-body">
+                                <h5>How damaged are the coral reefs in the Philippines? </h5>
+                                <p>Oceana's recent study shows that <b> 90% of our reefs are in poor to fair categories and none in excellent state </b>. The dismal condition of our reefs is further exacerbated by man-made actions.</p>
+                            </div>
+                        </div>
+                  
+                </div>
+                <div class="col-12 mb-4">
+                        <div class="card">
+						  <a href="https://climatetracker.asia/a-hope-for-bleaching-corals-are-there-climate-resilient-coral-reefs-in-the-philippines/" class="text-decoration-none">
+                            <img src="P4.gif" alt="Library">
+					      </a>
+                            <div class="card-body">
+                                <h5>What factors contribute to the degredation of coral reefs?</h5>
+                                <p>The Philippines is home to 600 hard coral species. However, decades of pollution, destructive fishing, and overfishing have taken a toll.  
+								But <b> climate change poses the greatest threat: record-breaking global temperatures, worsened by rising greenhouse gases, fuel ocean warming and acidification. </b> </p>
+                            </div>
+                        </div>
+                </div>
+				
+				
+				
+				
+				<div class="col-12 mb-4">
+                        <div class="card">
+						  <a href="https://www.scmp.com/week-asia/health-environment/article/3261999/south-china-sea-philippines-sounds-alarm-about-coral-reef-damage-related-beijings-reclamation" class="text-decoration-none">
+                            <img src="P5.gif" alt="Library">
+					      </a>
+                            <div class="card-body">
+                                <h5>What are the Latest News about the Philippine Coral Reefs? </h5>
+                                <p>Philippine officials and marine biologists have expressed alarm at the <b> widespread destruction of coral reefs  </b> uncovered on Pag-asa Island in the South China Sea, 
+								  the latest environmental damage to be attributed to Beijing’s actions in the disputed waters.</p>
+                            </div>
+                        </div>
+                </div>
+			
+            </div>
+        </div>
+    </section>
+
+
+
+
+			<section class="info-cards text-center py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="D1.jpg" alt="Info 1">
+                        <div class="card-body">
+                            <h5>Dynamite Fishing</h5>
+                            <p>Illegal dynamite fishing is the use of explosives to stun or kill fish, causing environmental destruction and violating fishing laws.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="D2.jpg" alt="Info 2">
+                        <div class="card-body">
+                            <h5>Cyanide Fishing</h5>
+                            <p>Cyanide fishing is the illegal practice of using cyanide to stun fish for easy capture, harming marine ecosystems and coral reefs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="D3.jpg" alt="Info 3">
+                        <div class="card-body">
+                            <h5>Trawling</h5>
+                            <p>Trawling is a fishing method that involves dragging a large net through the water or along the sea floor to catch fish, often causing habitat damage.</p>
+                        </div>
+                    </div>
+                </div>
+				
+				 <div class="col-md-4">
+                    <div class="card">
+                        <img src="D4.jpg" alt="Info 3">
+                        <div class="card-body">
+                            <h5>Longline</h5>
+                            <p>Longline fishing is a method where a long main line with baited hooks is set in the water to catch fish, often leading to bycatch of non-target species.</p>
+                        </div>
+                    </div>
+                </div>
+				
+				 <div class="col-md-4">
+                    <div class="card">
+                        <img src="D5.jpg" alt="Info 3">
+                        <div class="card-body">
+                            <h5>Ghost Fishing</h5>
+                            <p>Ghost fishing occurs when lost or abandoned fishing gear continues to trap and kill marine life unintentionally.</p>
+                        </div>
+                    </div>
+                </div>
+				
+				 <div class="col-md-4">
+                    <div class="card">
+                        <img src="D6.jpg" alt="Info 3">
+                        <div class="card-body">
+                            <h5>Overfishing</h5>
+                            <p>Overfishing is the excessive harvesting of fish from a body of water, depleting populations and disrupting marine ecosystems.</p>
+                        </div>
+                    </div>
+                </div>
+				
+				
+            </div>
+        </div>
+    </section>
+
+		<br><br>
+
+
+
+		<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const particleContainer = document.createElement('div');
+        particleContainer.className = 'particles';
+        document.body.appendChild(particleContainer);
+
+        for (let i = 0; i < 60; i++) {  // Adjust the number of particles here
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Positioning
+            particle.style.top = `${Math.random() * 100}vh`;
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.setProperty('--x', `${Math.random() * 100 - 50}vw`);
+            particle.style.setProperty('--y', `${Math.random() * 100 - 50}vh`);
+
+            // Random Size
+            const size = Math.random() * 5 + 3;  // Sizes between 5px and 15px
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            particleContainer.appendChild(particle);
+        }
+    });
+</script>
+
+		
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

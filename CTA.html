@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="logo.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaVive | CTA </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+ <style>
+    html, body {
+        overflow-x: hidden !important; /* Hides horizontal scrollbar */
+        overflow-y: auto; /* Keeps vertical scrolling */
+        margin: 0;
+        padding: 0;
+    }
+
+    * {
+        box-sizing: border-box; /* Prevents padding/margin from causing overflow */
+    }
+
+    body {
+        background-image: url(https://img.huffingtonpost.com/asset/596359141500002000bfcc70.jpeg?ops=1778_1000.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #e5e5e5;
+        font-family: Arial, sans-serif;
+        position: relative;
+        animation: moveBackground 30s infinite alternate ease-in-out;
+    }
+
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: -1;
+    }
+
+    .navbar {
+        background: linear-gradient(135deg, #25304a, #141c2e);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        border-bottom: 2px solid #4a75a8;
+        padding-left: 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        margin: 0;
+        padding-top: 10px;
+        height: 109px;
+    }
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-brand img {
+        height: 65px;
+        margin-right: 10px;
+    }
+
+    .navbar-brand span {
+        color: #ffffff;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .nav-link {
+        color: #ffffff !important;
+        margin: 0 10px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: transform 0.3s ease, color 0.3s ease;
+        position: relative;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 3px;
+        background: #4a75a8;
+        left: 50%;
+        bottom: -5px;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    .nav-link:hover {
+        transform: scale(1.1);
+        color: #4a75a8 !important;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        width: 100%;
+        left: 0;
+    }
+
+    .nav-link.active {
+        color: #6ea2e2 !important;
+    }
+
+    .cta-btn {
+        background-color: #4a75a8;
+        border: none;
+        padding: 10px 20px;
+        color: #ffffff;
+        font-size: 1.1rem;
+        border-radius: 25px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-btn:hover {
+        background-color: #6ea2e2;
+        transform: scale(1.05);
+    }
+
+    .hero {
+        height: 50vh;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+
+    .hero h1 {
+        font-family: 'Helvetica';
+        font-size: 5rem;
+        color: #FFD700;
+        position: relative;
+        z-index: 1;
+        text-shadow: none;
+    }
+
+   
+
+    @keyframes moveBackground {
+        0% {
+            background-position: center top;
+        }
+        50% {
+            background-position: center center;
+        }
+        100% {
+            background-position: center bottom;
+        }
+    }
+
+    #logo-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #141c2e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        animation: fadeOut 1.5s forwards 2.5s;
+    }
+
+    #logo-screen img {
+        width: 300px;
+        height: 300px;
+        animation: zoomIn 1.5s ease-in-out;
+    }
+
+    @keyframes zoomIn {
+        from {
+            transform: scale(0);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+    .particle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        opacity: 0.3;
+        animation: particleAnimation 300s infinite linear;
+    }
+
+    @keyframes particleAnimation {
+        from {
+            transform: translate(0, 0);
+        }
+        to {
+            transform: translate(calc(var(--x) * 15), calc(var(--y) * 15));
+        }
+    }
+
+    .cta-section {
+        background: rgba(20, 28, 46, 0.9);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        padding: 20px 0;
+        margin-top: -20px;
+    }
+
+    .cta-heading {
+        font-family: 'Quicksand', sans-serif;
+        font-size: 2.5rem;
+        color: #FFD700;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .cta-subtext {
+        font-family: 'Raleway', sans-serif;
+        color: #e5e5e5;
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .cta-card {
+        background: linear-gradient(145deg, #25304a, #141c2e);
+        border: 2px solid #FFD700;
+        border-radius: 12px;
+        padding: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .cta-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    }
+
+    .cta-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .cta-title {
+        font-size: 1.5rem;
+        color: #6ea2e2;
+        margin-top: 8px;
+    }
+
+    .cta-description {
+        color: #e5e5e5;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        flex-grow: 1;
+    }
+
+    .gradient-btn {
+        background: linear-gradient(135deg, #5b8cea, #e910fc);
+        color: #ffffff !important;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        border-radius: 25px;
+        transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .gradient-btn:hover {
+        background: linear-gradient(135deg, #e910fc, #5b8cea);
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    }
+</style>
+
+</head>
+
+
+
+
+	<body>
+		<div id="logo-screen">
+			<img src="HIGHI.png" alt="Coral Logo">
+		</div>
+
+
+
+
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="UIA Logo">
+               
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Library.html">Library</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Codex.html">Codex</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="CTA.html">CTA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="About Us.html">About Us</a></li>
+                    <li class="nav-item"> <a class="btn cta-btn gradient-btn ms-3" href="Donation.html" tabindex="0">Donate Now</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+			
+		
+
+    <section class="hero">
+		<br><br><br><br><br><br>
+		<img src ="HIGHI.png" width = "200px" height = "200px">
+        <h1> <b>CTA</b></h1>
+		
+     
+    </section>
+
+   
+	<br><br><br><br>
+
+		<section class="cta-section py-5">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="cta-heading">Why Protect Our Coral Reefs?</h2>
+            <p class="cta-subtext">As a part of our student preservation team, we advertise to spread the awareness of our beloved coral reefs. We aim to make a difference, one small step at a time. </p>
+        </div>
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-md-4">
+                <div class="cta-card p-4 text-center">
+                    <img src="CTA1.png" alt="Coral Icon" class="cta-icon mb-3">
+                    <h4 class="cta-title">Coral Reefs in Danger</h4>
+                    <p class="cta-description"> In the Philippines, where coral reef destruction is the worst, <b> over 70% have been destroyed and only 5% can be said to be in good condition. </b> </p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <div class="cta-card p-4 text-center">
+                    <img src="CTA2.png" alt="Marine Life Icon" class="cta-icon mb-3">
+                    <h4 class="cta-title">Marine Life Preservation</h4>
+                    <p class="cta-description">Thousands of marine species face extinction. Help us ensure a thriving ocean for future generations.</p>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-4">
+                <div class="cta-card p-4 text-center">
+                    <img src="CTA3.png" alt="Pollution Icon" class="cta-icon mb-3">
+                    <h4 class="cta-title">Spreading Awareness</h4>
+                    <p class="cta-description">Contribute to the cause, share this with other people!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+   
+	
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Generate particles
+    const particleContainer = document.createElement('div');
+    particleContainer.className = 'particles';
+    document.body.appendChild(particleContainer);
+
+    for (let i = 0; i < 60; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+
+        // Positioning
+        particle.style.top = `${Math.random() * 100}vh`;
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.setProperty('--x', `${Math.random() * 100 - 50}vw`);
+        particle.style.setProperty('--y', `${Math.random() * 100 - 50}vh`);
+
+        // Random Size
+        const size = Math.random() * 5 + 3;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+
+        particleContainer.appendChild(particle);
+    }
+
+    // Duplicate carousel cards for seamless looping
+    const track = document.querySelector('.carousel-track');
+    if (track) {
+        const cards = track.innerHTML;
+        track.innerHTML += cards;
+    }
+
+    // Search functionality with clear button
+    const searchBar = document.getElementById('searchBar');
+    const clearButton = document.getElementById('clearButton');
+
+    if (searchBar) {
+        searchBar.addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase();
+            const coralCards = document.querySelectorAll('.coral-card');
+
+            coralCards.forEach(card => {
+                const title = card.getAttribute('data-title').toLowerCase();
+                card.style.display = title.includes(searchTerm) ? 'block' : 'none';
+            });
+
+            // Show the clear button if there's input, hide it if empty
+            clearButton.style.display = this.value ? 'block' : 'none';
+        });
+
+        // Clear input when clicking the clear button
+        clearButton.addEventListener('click', function () {
+            searchBar.value = '';
+            clearButton.style.display = 'none';
+
+            const coralCards = document.querySelectorAll('.coral-card');
+            coralCards.forEach(card => {
+                card.style.display = 'block';  // Show all cards when search is cleared
+            });
+
+            searchBar.focus();  // Bring focus back to the search bar
+        });
+    }
+});
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
