@@ -95,6 +95,33 @@
     .nav-link.active {
         color: #6ea2e2 !important;
     }
+	
+	
+	  @media (max-width: 991px) {
+            .navbar {
+                height: 90px;
+                display: flex;
+                align-items: center;
+                padding: 10px 20px;
+            }
+            .navbar-brand img {
+                height: 55px;
+            }
+            .navbar-toggler {
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .navbar-collapse {
+                background: linear-gradient(135deg, #25304a, #141c2e);
+                padding: 10px;
+                border-radius: 10px;
+            }
+            .nav-item {
+                text-align: center;
+            }
+        }
 
     /* CTA Button */
     .cta-btn {
@@ -358,7 +385,6 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
                 <img src="logo.png" alt="UIA Logo">
-          
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -370,7 +396,7 @@
                     <li class="nav-item"><a class="nav-link" href="Codex.html">Codex</a></li>
                     <li class="nav-item"><a class="nav-link" href="CTA.html">CTA</a></li>
                     <li class="nav-item"><a class="nav-link" href="About Us.html">About Us</a></li>
-                    <li class="nav-item"> <a class="btn cta-btn gradient-btn ms-3" href="Donation.html" tabindex="0">Donate Now</a> </li>
+                    <li class="nav-item"> <a class="btn cta-btn gradient-btn ms-3" href="Donation.html">Donate Now</a> </li>
                 </ul>
             </div>
         </div>
