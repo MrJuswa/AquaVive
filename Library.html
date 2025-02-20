@@ -44,68 +44,96 @@ body::after {
 }
 
 .navbar {
-    background: linear-gradient(135deg, #25304a, #141c2e);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    border-bottom: 2px solid #4a75a8;
-    padding-left: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    height: 109px;
-}
+        background: linear-gradient(135deg, #25304a, #141c2e);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        border-bottom: 2px solid #4a75a8;
+        padding-left: 20px;
+        height: 109px;
+    }
 
-.navbar-brand {
-    display: flex;
-    align-items: center;
-}
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+    }
 
-.navbar-brand img {
-    height: 65px;
-    margin-right: 10px;
-}
+    .navbar-brand img {
+        height: 65px;
+        margin-right: 10px;
+    }
 
-.navbar-brand span {
-    color: #ffffff;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+    .navbar-brand span {
+        color: #ffffff;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
 
-.nav-link {
-    color: #ffffff !important;
-    margin: 0 10px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: transform 0.3s ease, color 0.3s ease;
-    position: relative;
-}
+    .nav-link {
+        color: #ffffff !important;
+        margin: 0 10px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: transform 0.3s ease, color 0.3s ease;
+        position: relative;
+    }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    background: #4a75a8;
-    left: 50%;
-    bottom: -5px;
-    transition: width 0.3s ease, left 0.3s ease;
-}
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 3px;
+        background: #4a75a8;
+        left: 50%;
+        bottom: -5px;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
 
-.nav-link:hover {
-    transform: scale(1.1);
-    color: #4a75a8 !important;
-}
+    .nav-link:hover {
+        transform: scale(1.1);
+        color: #4a75a8 !important;
+    }
 
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
-    left: 0;
-}
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        width: 100%;
+        left: 0;
+    }
 
-.nav-link.active {
-    color: #6ea2e2 !important;
-}
+    .nav-link.active {
+        color: #6ea2e2 !important;
+    }
+	
+	
+	 @media (max-width: 991px) {
+            .navbar {
+                height: 80px;
+                display: flex;
+                align-items: center;
+                padding: 0 15px;
+            }
+            .navbar-brand {
+                display: flex;
+                align-items: center;
+            }
+            .navbar-toggler {
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                border-color: white !important;
+            }
+            .navbar-toggler-icon {
+                filter: invert(1);
+				background-color: white;
+            }
+            .navbar-collapse {
+                background: linear-gradient(135deg, #25304a, #141c2e);
+                padding: 10px;
+                border-radius: 10px;
+            }
+            .nav-item {
+                text-align: center;
+            }
+        }
 
 .cta-btn {
     background-color: #4a75a8;
@@ -351,19 +379,18 @@ body::after {
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
                 <img src="logo.png" alt="UIA Logo">
-              
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active">Library</a></li>
+                    <li class="nav-item"><a class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Library.html">Library</a></li>
                     <li class="nav-item"><a class="nav-link" href="Codex.html">Codex</a></li>
                     <li class="nav-item"><a class="nav-link" href="CTA.html">CTA</a></li>
                     <li class="nav-item"><a class="nav-link" href="About Us.html">About Us</a></li>
-                    <li class="nav-item"> <a class="btn cta-btn gradient-btn ms-3" href="Donation.html" tabindex="0">Donate Now</a> </li>
+                    <li class="nav-item"> <a class="btn cta-btn gradient-btn ms-3" href="Donation.html">Donate Now</a> </li>
                 </ul>
             </div>
         </div>
